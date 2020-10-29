@@ -4,13 +4,31 @@ public class Threading {
     public static void main(String[] args) {
         Thread t1 = new Thread(new Printer("Thread one: "));
         Thread t2 = new Thread(new Printer("Thread two: "));
+
+
+        //When I added and started this anonymous class...it took full priority over the other two threads.
+        // I do not know why...
+        Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                int i = 0;
+                while (i < 25) {
+                    System.out.println("Anonymous class is running...");
+                    i++;
+                }
+            }
+        };
+        Thread t3 = new Thread(run);
+
         t1.start();
         t2.start();
+        t3.start();
     }
 
 
 
 }
+
 class Printer implements Runnable {
     String identity;
 
@@ -21,7 +39,7 @@ class Printer implements Runnable {
     @Override
     public void run() {
         int i = 0;
-        while (i < 100) {
+        while (i < 25) {
             System.out.println(identity + "I am running...");
             i++;
         }
