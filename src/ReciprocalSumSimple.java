@@ -33,7 +33,7 @@ public class ReciprocalSumSimple {
         System.out.println();
         System.out.println();
         long start2 = System.currentTimeMillis();
-        System.out.printf("Your reciprocal sum using multi-threading is: %f\n", threadedReciprocalSum(arr, 4));
+        System.out.printf("Your reciprocal sum using multi-threading is: %f\n", threadedReciprocalSum(arr, 1));
         long elapsedTime2 = System.currentTimeMillis() - start2;
         System.out.printf("Elapsed time for this operations is %d millisecs\n",elapsedTime2);
     }
